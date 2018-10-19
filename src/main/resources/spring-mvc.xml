@@ -9,5 +9,24 @@
        http://www.springframework.org/schema/context/spring-context-4.0.xsd
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+    <mvc:default-servlet-handler/>
+    <!-- 启用spring mvc 注解 -->
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.kevin.department.controller"/>
+
+    <!--开启注解支持-->
+    <mvc:annotation-driven/>
+
+    <!--配置使用哪一个ViewResolver来解析View-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--用来解析jsp文件-->
+        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+        <!--前缀-->
+        <property name="prefix" value="/view/"/>
+        <!--后缀-->
+        <property name="suffix" value=".html"/>
+    </bean>
+
 
 </beans>
