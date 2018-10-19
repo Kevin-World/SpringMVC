@@ -15,13 +15,43 @@
        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
-    <context:component-scan base-package="com.kevin"/>
-    <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+
+    <context:component-scan base-package="*.*.*.service"/>
+
+    <context:property-placeholder location="classpath:./jdbc.properties"/>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath*:/**/*Mapper.xml"/>
+    </bean>
+
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="*.**.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
-    destroy-method="close" init-method="init">
+          destroy-method="close" init-method="init">
         <property name="url" value="${jdbc_url}"/>
+        <property name="username" value="${jdbc_username}"/>
+        <property name="password" value="${jdbc_password}"/>
+        <property name="driver" value="${driverClassName}"/>
+        <!--初始化连接池大小-->
+        <property name="initialSize" value="5"/>
+        <!--连接池最大连接数量-->
+        <property name="maxActive" value="25"/>
+        <!--最小空闲连接-->
+        <property name="minIdle" value="0"/>
+        <!--最大等待时间-->
+        <property name="maxWait" value="60000"/>
+        <property name="validationQuery" value="${validationQuery}"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="testWhileIdle" value="false"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="25200000"/>
+        <property name="removeAbandonedTimeout" value="1800"/>
+        <property name="logAbandoned" value="true"/>
+        <property name="filters" value="mergeStart"/>
     </bean>
 </beans>
