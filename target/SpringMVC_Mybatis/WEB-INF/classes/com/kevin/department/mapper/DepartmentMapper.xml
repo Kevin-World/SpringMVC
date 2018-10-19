@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kevin.department.mapper.DepartmentMapper">
+    <resultMap id="BaseResultMap" type="com.kevin.department.dto.Department">
+        <id column="department_id" jdbcType="INTEGER" property="departmentId"/>
+        <result column="department_name" jdbcType="VARCHAR" property="departmentName"/>
+        <result column="director" jdbcType="INTEGER" property="director"/>
+        <result column="attribute1" jdbcType="VARCHAR" property="attribute1"/>
+        <result column="attribute2" jdbcType="VARCHAR" property="attribute2"/>
+        <result column="attribute3" jdbcType="VARCHAR" property="attribute3"/>
+        <result column="attribute4" jdbcType="VARCHAR" property="attribute4"/>
+        <result column="attribute5" jdbcType="VARCHAR" property="attribute5"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    department_id, department_name, director, attribute1, attribute2, attribute3, attribute4, 
+    attribute5
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from departments
+        where department_id = #{departmentId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from departments
+    where department_id = #{departmentId,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.kevin.department.dto.Department">
+    insert into departments (department_id, department_name, director, 
+      attribute1, attribute2, attribute3, 
+      attribute4, attribute5)
+    values (#{departmentId,jdbcType=INTEGER}, #{departmentName,jdbcType=VARCHAR}, #{director,jdbcType=INTEGER}, 
+      #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, #{attribute3,jdbcType=VARCHAR}, 
+      #{attribute4,jdbcType=VARCHAR}, #{attribute5,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.kevin.department.dto.Department">
+        insert into departments
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="departmentId != null">
+                department_id,
+            </if>
+            <if test="departmentName != null">
+                department_name,
+            </if>
+            <if test="director != null">
+                director,
+            </if>
+            <if test="attribute1 != null">
+                attribute1,
+            </if>
+            <if test="attribute2 != null">
+                attribute2,
+            </if>
+            <if test="attribute3 != null">
+                attribute3,
+            </if>
+            <if test="attribute4 != null">
+                attribute4,
+            </if>
+            <if test="attribute5 != null">
+                attribute5,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="departmentId != null">
+                #{departmentId,jdbcType=INTEGER},
+            </if>
+            <if test="departmentName != null">
+                #{departmentName,jdbcType=VARCHAR},
+            </if>
+            <if test="director != null">
+                #{director,jdbcType=INTEGER},
+            </if>
+            <if test="attribute1 != null">
+                #{attribute1,jdbcType=VARCHAR},
+            </if>
+            <if test="attribute2 != null">
+                #{attribute2,jdbcType=VARCHAR},
+            </if>
+            <if test="attribute3 != null">
+                #{attribute3,jdbcType=VARCHAR},
+            </if>
+            <if test="attribute4 != null">
+                #{attribute4,jdbcType=VARCHAR},
+            </if>
+            <if test="attribute5 != null">
+                #{attribute5,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.kevin.department.dto.Department">
+        update departments
+        <set>
+            <if test="departmentName != null">
+                department_name = #{departmentName,jdbcType=VARCHAR},
+            </if>
+            <if test="director != null">
+                director = #{director,jdbcType=INTEGER},
+            </if>
+            <if test="attribute1 != null">
+                attribute1 = #{attribute1,jdbcType=VARCHAR},
+            </if>
+            <if test="attribute2 != null">
+                attribute2 = #{attribute2,jdbcType=VARCHAR},
+            </if>
+            <if test="attribute3 != null">
+                attribute3 = #{attribute3,jdbcType=VARCHAR},
+            </if>
+            <if test="attribute4 != null">
+                attribute4 = #{attribute4,jdbcType=VARCHAR},
+            </if>
+            <if test="attribute5 != null">
+                attribute5 = #{attribute5,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where department_id = #{departmentId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.kevin.department.dto.Department">
+    update departments
+    set department_name = #{departmentName,jdbcType=VARCHAR},
+      director = #{director,jdbcType=INTEGER},
+      attribute1 = #{attribute1,jdbcType=VARCHAR},
+      attribute2 = #{attribute2,jdbcType=VARCHAR},
+      attribute3 = #{attribute3,jdbcType=VARCHAR},
+      attribute4 = #{attribute4,jdbcType=VARCHAR},
+      attribute5 = #{attribute5,jdbcType=VARCHAR}
+    where department_id = #{departmentId,jdbcType=INTEGER}
+  </update>
+</mapper>
