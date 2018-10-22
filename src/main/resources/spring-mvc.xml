@@ -13,7 +13,7 @@
     <mvc:default-servlet-handler/>
 
     <context:annotation-config/>
-    <context:component-scan base-package="**.*.controller"/>
+    <context:component-scan base-package="**.controller"/>
 
     <mvc:annotation-driven>
         <mvc:message-converters>
