@@ -14,7 +14,6 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="**.controllers"/>
-    <!--<context:component-scan base-package="**.mapper"/>-->
 
     <mvc:annotation-driven>
         <mvc:message-converters>
@@ -40,6 +39,4 @@
         <!--后缀-->
         <property name="suffix" value=".html"/>
     </bean>
-
-
 </beans>

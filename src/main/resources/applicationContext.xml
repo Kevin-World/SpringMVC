@@ -27,7 +27,6 @@
 
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="*.*.**.mapper"/>
-        <!--<property name="basePackage" value="com.kevin.department.mapper"/>-->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
     <context:component-scan base-package="**.*.service"/>
