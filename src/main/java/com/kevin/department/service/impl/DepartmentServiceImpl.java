@@ -13,8 +13,7 @@ public class DepartmentServiceImpl implements IDepartmentService {
 
     @Override
     public int createDepartment(Department department) {
-        departmentMapper.insert(department);
-        return 0;
+        int result = departmentMapper.insert(department);
+        return result;
     }
-
 }

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DepartmentController {
     @Autowired
     private IDepartmentService departmentService;
-    //@RequestBody Department department
 
     @RequestMapping("/world")
     public String helloWorld(@RequestBody Department department) {

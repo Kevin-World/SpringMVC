@@ -13,11 +13,8 @@
     <mvc:default-servlet-handler/>
 
     <context:annotation-config/>
-    <!--<context:component-scan base-package="**.controller"/>-->
-    <context:component-scan base-package="com.kevin.department.controller"/>
-    <context:component-scan base-package="com.kevin.department.mapper"/>
-    <context:component-scan base-package="com.kevin.department.service"/>
-    <context:component-scan base-package="com.kevin.department.service.impl"/>
+    <context:component-scan base-package="**.controllers"/>
+    <!--<context:component-scan base-package="**.mapper"/>-->
 
     <mvc:annotation-driven>
         <mvc:message-converters>
