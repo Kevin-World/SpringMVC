@@ -23,17 +23,15 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="mapperLocations" value="classpath*:/**/*Mapper.xml"/>
-        <!--<property name="mapperLocations" value="classpath*:com/kevin/department/mapper/DepartmentMapper.xml"/>-->
     </bean>
 
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!--<property name="basePackage" value="*.*.**.mapper"/>-->
-        <property name="basePackage" value="com.kevin.department.mapper"/>
+        <property name="basePackage" value="*.*.**.mapper"/>
+        <!--<property name="basePackage" value="com.kevin.department.mapper"/>-->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
-    <!--<context:component-scan base-package="**.*.service"/>-->
-    <context:component-scan base-package="com.kevin.department.service"/>
-    <context:component-scan base-package="com.kevin.department.service.impl"/>
+    <context:component-scan base-package="**.*.service"/>
+    <!--<context:component-scan base-package="com.kevin.department.service"/>-->
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>

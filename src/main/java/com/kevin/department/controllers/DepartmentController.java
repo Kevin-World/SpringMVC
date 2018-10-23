@@ -1,7 +1,7 @@
-package com.kevin.department.controller;
+package com.kevin.department.controllers;
 
 import com.kevin.department.dto.Department;
-import com.kevin.department.service.DepartmentService;
+import com.kevin.department.service.IDepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/hello")
 public class DepartmentController {
     @Autowired
-    private DepartmentService departmentService;
+    private IDepartmentService departmentService;
     //@RequestBody Department department
 
     @RequestMapping("/world")
