@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/hello")
+@RequestMapping("/dep")
 public class DepartmentController {
     @Autowired
     private IDepartmentService departmentService;
 
-    @RequestMapping("/world")
+    @RequestMapping("/query")
     public String helloWorld(@RequestBody Department department) {
         departmentService.createDepartment(department);
 
