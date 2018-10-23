@@ -13,7 +13,11 @@
     <mvc:default-servlet-handler/>
 
     <context:annotation-config/>
-    <context:component-scan base-package="**.controller"/>
+    <!--<context:component-scan base-package="**.controller"/>-->
+    <context:component-scan base-package="com.kevin.department.controller"/>
+    <context:component-scan base-package="com.kevin.department.mapper"/>
+    <context:component-scan base-package="com.kevin.department.service"/>
+    <context:component-scan base-package="com.kevin.department.service.impl"/>
 
     <mvc:annotation-driven>
         <mvc:message-converters>
@@ -29,12 +33,13 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+    <mvc:annotation-driven/>
     <!--配置使用哪一个ViewResolver来解析View-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--用来解析jsp文件-->
         <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
         <!--前缀-->
-        <property name="prefix" value="/view/"/>
+        <property name="prefix" value="/WEB-INF/view/"/>
         <!--后缀-->
         <property name="suffix" value=".html"/>
     </bean>

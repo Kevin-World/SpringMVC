@@ -2,6 +2,8 @@ package com.kevin.student.mapper;
 
 import com.kevin.student.dto.Student;
 
+import java.util.List;
+
 public interface StudentMapper {
 
     int deleteByPrimaryKey(Integer studentId);
@@ -10,7 +12,7 @@ public interface StudentMapper {
 
     int insertSelective(Student record);
 
-    Student selectByPrimaryKey(Integer studentId);
+    List<Student> selectByPrimaryKey(Integer studentId);
 
     int updateByPrimaryKeySelective(Student record);
 

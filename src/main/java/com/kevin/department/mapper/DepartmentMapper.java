@@ -1,6 +1,7 @@
 package com.kevin.department.mapper;
 
 import com.kevin.department.dto.Department;
+import java.util.List;
 
 public interface DepartmentMapper {
 
@@ -10,7 +11,7 @@ public interface DepartmentMapper {
 
     int insertSelective(Department record);
 
-    Department selectByPrimaryKey(Integer departmentId);
+    List<Department> selectByPrimaryKey(Integer departmentId);
 
     int updateByPrimaryKeySelective(Department record);
 
